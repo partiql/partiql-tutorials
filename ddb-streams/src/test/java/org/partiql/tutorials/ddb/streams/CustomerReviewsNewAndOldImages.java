@@ -58,10 +58,6 @@ public class CustomerReviewsNewAndOldImages extends AbstractCustomerReviews {
         ExprValue oldImagesPartiQL = valueFactory.newList(lold);
         ExprValue newImagesPartiQL = valueFactory.newList(lnew);
 
-//        Flip to these lines and see what happens.
-//        ExprValue newImagesPartiQL = valueFactory.newList(newImagesExprVals);
-//        ExprValue oldImagesPartiQL = valueFactory.newList(oldImagesExprVals);
-
         // globals can be thought of as the DB's catalogue
         Map<String, ExprValue> globals = new HashMap<>();
         globals.put("newImages", newImagesPartiQL);

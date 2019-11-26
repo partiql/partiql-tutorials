@@ -60,8 +60,6 @@ public class AbstractCustomerReviews {
         streamArn = describeTable.getTable().getLatestStreamArn();
         INFO("ARN :", streamArn);
         StreamSpecification streamSpec = describeTable.getTable().getStreamSpecification();
-//        INFO("Stream enabled:", streamSpec.getStreamEnabled().toString());
-//        INFO("Update view type:", streamSpec.getStreamViewType());
         streamsClient = localDynamoDB.amazonDynamoDBStreams();
         mapper = new DynamoDBMapper(ddbClient);
     }
@@ -80,7 +78,6 @@ public class AbstractCustomerReviews {
     protected Iterable<ExprValue> getRecordUpdates(StreamViewType viewType) {
         Deque<String> shardsQ = getShardIds();
         Iterator<ExprValue> it = makeIterator(shardsQ, viewType);
-        //        StreamSupport.stream(result.spliterator(), false).forEach(System.out::println);
         return () -> it;
     }
 
@@ -229,7 +226,6 @@ public class AbstractCustomerReviews {
                 }
 
                 String currShardIter = shardsQ.removeFirst();
-//                INFO("Fetching records from shard iterator: " + currShardIter);
 
                 GetRecordsResult getRecordsResult = streamsClient.getRecords(new GetRecordsRequest()
                         .withShardIterator(currShardIter));
@@ -241,7 +237,6 @@ public class AbstractCustomerReviews {
                 }
                 currRecords.addAll(records);
                 String nextShardIter = getRecordsResult.getNextShardIterator();
-//                INFO("Next shard iterator: " + nextShardIter);
                 if (nextShardIter != null) {
                     shardsQ.addLast(nextShardIter);
                 }
