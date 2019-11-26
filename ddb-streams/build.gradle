@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group 'org.partiql.tutorials'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+
+    maven {
+        name "AWS Sonatype"
+        url "https://aws.oss.sonatype.org/content/repositories/releases/"
+    }
+    maven {
+        name "DynamoDB Local Release Repository - US West (Oregon) Region"
+        url "https://s3-us-west-2.amazonaws.com/dynamodb-local/release"
+    }
+
+
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.674')
+
+    compile group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.11.674'
+    compile group: 'org.partiql', name: 'partiql-lang-kotlin', version: '0.1.1'
+    compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib', version: '1.3.60'
+
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.5.2'
+
+    testCompile group: 'com.amazonaws', name: 'DynamoDBLocal', version: '1.11.477'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+
+}
