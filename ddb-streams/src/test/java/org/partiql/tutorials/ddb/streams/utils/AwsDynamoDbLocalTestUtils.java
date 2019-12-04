@@ -1,4 +1,4 @@
-package org.partiql.tutorials.ddb.streams;
+package org.partiql.tutorials.ddb.streams.utils;
 
 import com.google.common.base.Splitter;
 import com.google.common.base.Supplier;
