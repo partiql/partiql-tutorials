@@ -10,10 +10,6 @@ sourceCompatibility = 1.8
 repositories {
 
     maven {
-        name "AWS Sonatype"
-        url "https://aws.oss.sonatype.org/content/repositories/releases/"
-    }
-    maven {
         name "DynamoDB Local Release Repository - US West (Oregon) Region"
         url "https://s3-us-west-2.amazonaws.com/dynamodb-local/release"
     }
