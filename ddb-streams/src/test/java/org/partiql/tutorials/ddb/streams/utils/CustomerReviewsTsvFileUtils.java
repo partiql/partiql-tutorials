@@ -1,7 +1,8 @@
-package org.partiql.tutorials.ddb.streams;
+package org.partiql.tutorials.ddb.streams.utils;
 
 
 import org.junit.jupiter.api.Test;
+import org.partiql.tutorials.ddb.streams.CustomerReview;
 
 import java.io.IOException;
 import java.nio.file.Files;

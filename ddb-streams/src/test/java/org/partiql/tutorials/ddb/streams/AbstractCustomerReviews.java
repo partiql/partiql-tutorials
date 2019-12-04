@@ -17,6 +17,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.partiql.lang.CompilerPipeline;
 import org.partiql.lang.eval.ExprValue;
 import org.partiql.lang.eval.ExprValueFactory;
+import org.partiql.tutorials.ddb.streams.utils.AwsDynamoDbLocalTestUtils;
+import org.partiql.tutorials.ddb.streams.utils.CustomerReviewsTsvFileUtils;
 
 import java.io.IOException;
 import java.util.*;
